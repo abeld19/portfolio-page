@@ -6,6 +6,8 @@ var session = require('express-session');
 var validator = require('express-validator');
 var expressSanitizer = require('express-sanitizer');
 const axios = require('axios'); 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // Initialise the Express application
 const app = express();
@@ -46,7 +48,37 @@ const pool = mysql.createPool({
     queueLimit: 0
 });
 
-// Connect to the database pool
+// Function to insert default admin user
+const insertDefaultAdminUser = async () => {
+    const username = 'adani';
+    const email = 'adani@goldsmiths.com';
+    const password = 'adani001';
+    const firstName = 'Adani';
+    const lastName = 'Dan';
+
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    
+    const query = `
+        INSERT INTO users (username, email, password, first_name, last_name) 
+        VALUES (?, ?, ?, ?, ?)
+        ON DUPLICATE KEY UPDATE
+            username = VALUES(username),
+            password = VALUES(password),
+            first_name = VALUES(first_name),
+            last_name = VALUES(last_name)
+    `;
+
+    pool.query(query, [username, email, hashedPassword, firstName, lastName], (err, results) => {
+        if (err) {
+            console.error('Error inserting default admin user:', err);
+        } else {
+            console.log('Default admin user inserted or updated successfully');
+        }
+    });
+};
+
+
+// Connect to the database pool and insert default admin user
 pool.getConnection((err, connection) => {
     if (err) {
         console.error('Database connection failed:', err.stack);
@@ -55,6 +87,8 @@ pool.getConnection((err, connection) => {
     console.log('Connected to database');
     console.log('Database state:', connection.state);
     connection.release(); // Release the connection back to the pool
+
+    insertDefaultAdminUser(); // Insert default admin user
 });
 
 // Function to start the server
@@ -107,23 +141,38 @@ app.post('users/login', (req, res) => {
 
     // Basic validation
     if (!username || !password) {
+        console.log('Username or password not provided');
         return res.send("Username and password are required. Please <a href='users/login'>try again</a>");
     }
 
     // Check credentials in the database
-    const sql = "SELECT id FROM users WHERE username = ? AND password = ?";
-    req.db.query(sql, [username, password], (err, results) => {
+    const sql = "SELECT id, password FROM users WHERE username = ?";
+    req.db.query(sql, [username], (err, results) => {
         if (err) {
             console.error('Error checking credentials:', err);
             return res.send('An error occurred while logging in. Please try again.');
         }
         if (results.length === 0) {
+            console.log('No user found with the provided username');
             return res.send("Invalid credentials. Please <a href='users/login'>try again</a>");
         }
 
-        // Set session userId
-        req.session.userId = results[0].id;
-        res.redirect('..');
+        // Compare the hashed password
+        const hashedPassword = results[0].password;
+        bcrypt.compare(password, hashedPassword, (err, isMatch) => {
+            if (err) {
+                console.error('Error comparing passwords:', err);
+                return res.send('An error occurred while logging in. Please try again.');
+            }
+            if (!isMatch) {
+                console.log('Password does not match');
+                return res.send("Invalid credentials. Please <a href='users/login'>try again</a>");
+            }
+
+            // Set session userId
+            req.session.userId = results[0].id;
+            res.redirect('..');
+        });
     });
 });
 

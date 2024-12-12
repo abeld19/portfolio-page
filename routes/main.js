@@ -44,7 +44,7 @@ router.post('/contact', (req, res, next) => {
             console.error('Error inserting contact message:', err);
             return res.send('An error occurred while submitting your message. Please try again.');
         }
-        res.send('Thank you for your message! We will get back to you soon.');
+        res.send('Thank you for your message! We will get back to you soon. <a href="/contacts">Back to contacts</a>');
     });
 });
 
