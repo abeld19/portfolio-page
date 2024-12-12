@@ -123,7 +123,7 @@ app.post('users/login', (req, res) => {
 
         // Set session userId
         req.session.userId = results[0].id;
-        res.redirect('/');
+        res.redirect('..');
     });
 });
 

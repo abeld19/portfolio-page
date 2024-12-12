@@ -78,7 +78,7 @@ router.post('/login', [
 
             // Set the session userId
             req.session.userId = user.id;
-            res.redirect('/');
+            res.redirect('..');
         });
     });
 });
