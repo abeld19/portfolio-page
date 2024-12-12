@@ -35,7 +35,7 @@ router.post('/register', [
         if (err) {
             return res.status(500).json({ error: err.message });
         }
-        res.redirect('/users/login');
+        res.redirect('./login');
     });
 });
 
@@ -89,7 +89,7 @@ router.get('/logout', (req, res) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }
-        res.redirect('/users/login');
+        res.redirect('./login');
     });
 });
 

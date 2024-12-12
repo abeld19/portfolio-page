@@ -90,7 +90,7 @@ app.use((req, res, next) => {
 const requireLogin = (req, res, next) => {
     if (!req.session.userId) {
         console.log('User not logged in, redirecting to login'); // Log redirection to login
-        return res.redirect('/users/login');
+        return res.redirect('users/login');
     }
     next();
 };
@@ -102,12 +102,12 @@ const usersRoutes = require('./routes/users');
 app.use('/users', usersRoutes);
 
 // Route to handle login form submission
-app.post('/users/login', (req, res) => {
+app.post('users/login', (req, res) => {
     const { username, password } = req.body;
 
     // Basic validation
     if (!username || !password) {
-        return res.send("Username and password are required. Please <a href='/users/login'>try again</a>");
+        return res.send("Username and password are required. Please <a href='users/login'>try again</a>");
     }
 
     // Check credentials in the database
@@ -118,7 +118,7 @@ app.post('/users/login', (req, res) => {
             return res.send('An error occurred while logging in. Please try again.');
         }
         if (results.length === 0) {
-            return res.send("Invalid credentials. Please <a href='/users/login'>try again</a>");
+            return res.send("Invalid credentials. Please <a href='users/login'>try again</a>");
         }
 
         // Set session userId

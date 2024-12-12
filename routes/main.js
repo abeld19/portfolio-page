@@ -153,10 +153,10 @@ router.post('/search', (req, res, next) => {
             res.send('Project not found <a href="/myproject">Back to My Projects</a>');
         } else {
             if (project.name === 'Abels portfolio') {
-                res.redirect('/first');
+                res.redirect('first');
             }
             else if (project.name === 'Care Compass') {
-                res.redirect('/second');
+                res.redirect('second');
             }
             else {
                 // send project not found and a link to the myproject page
