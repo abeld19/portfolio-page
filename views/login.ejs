@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <!-- Link to the main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+<body>
+    <!-- Header section -->
+    <header class="header">
+        <h1>Login</h1>
+    </header>
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Display error messages if any -->
+        <% if (errors && errors.length > 0) { %>
+            <ul class="error-messages">
+                <% errors.forEach(function(error) { %>
+                    <li><%= error.msg %></li>
+                <% }); %>
+            </ul>
+        <% } %>
+
+        <!-- Login form -->
+        <form action="/users/login" method="POST" class="form">
+            <!-- Username input field -->
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" name="username" required>
+            </div>
+
+            <!-- Password input field -->
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="password" required>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <!-- Link to the registration page -->
+        <p>Don't have an account? <a href="/users/register">Register here</a>.</p>
+
+        <!-- Link to the home page -->
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

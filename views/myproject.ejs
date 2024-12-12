@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <title>My Projects</title>
+    <!-- Link to the main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+<body>
+    <!-- Header section -->
+    <header class="header">
+        <h1>My Works</h1>
+    </header>
+    
+    <!-- Navigation menu -->
+    <nav class="navigation">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/myproject">Works</a></li>
+            <li><a href="/contacts">Contacts</a></li>    
+        </ul>
+        <!-- Search form -->
+        <form action="/search" method="POST" class="search-form">
+            <input type="text" name="query" placeholder="Search my works...">
+            <button type="submit">Search</button>
+        </form>
+    </nav>
+    
+    <!-- Projects section -->
+    <div class="icons">
+        <div class="image">
+            <!-- First project -->
+            <a href="/first">
+                <figure class="image-figure">
+                    <img src="images/firstyearproject.png" alt="Description of image">
+                    <figcaption>Abel's portfolio</figcaption>
+                </figure>
+            </a>
+       
+            <!-- Second project -->
+            <a href="/second">
+                <figure class="image-figure">
+                    <img src="images/care.png" alt="Description of image">
+                    <figcaption>Care Compass</figcaption>
+                </figure>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Footer section -->
+    <footer>
+        <p>To view my GitHub repositories, please <a href="/login">Login</a> first. <a href="/logout">Logout</a></p>
+    </footer>
+</body>
+</html>

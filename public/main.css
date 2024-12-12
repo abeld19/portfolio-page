@@ -1,0 +1,279 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #f4f4f9, #e0e0e0);
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  color: #00796b;
+  margin: 20px 0;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  color: #004d40;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+p, li {
+  font-family: 'Roboto', sans-serif;
+  margin-block: 1em;
+  font-size: 18px;
+  color: #666;
+  padding: 0.5em;
+  line-height: 1.8;
+}
+
+a:link, a:visited {
+  color: #00796b;
+  text-decoration: none;
+  padding: 5px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  color: #004d40;
+  transform: scale(1.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2em;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #00796b;
+}
+
+.btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00796b;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #005f56;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.home-link {
+  display: block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+.error-messages {
+  color: red;
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-links {
+  text-align: center;
+}
+
+.contact-links a {
+  font-size: 30px;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: #004d40;
+  transform: scale(1.1);
+}
+
+.contact-links a span {
+  font-size: 16px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  overflow: clip;
+  margin-bottom: 20px;
+}
+
+.image {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #00796b;
+  margin-bottom: 20px;
+}
+
+.image-figure {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-figure img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.image5 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image5 img {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid #00796b;
+  margin-bottom: 20px;
+}
+
+.image6 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image6 img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid #00796b;
+  margin-bottom: 20px;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.projects img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid #00796b;
+  margin-bottom: 20px;
+}
+
+.navigation {
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #00796b;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation li {
+  margin: 0 15px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: block;
+}
+
+.navigation a:hover {
+  background-color: #005f56;
+  transform: scale(1.05);
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.introduction, .skills, .attributes {
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.skills-list {
+  display: flex;
+  gap: 15px;
+}
+
+

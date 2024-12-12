@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Page title dynamically set from project name -->
+    <title><%= project.name %></title>
+    <!-- Link to the main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <!-- Main heading dynamically set from name variable -->
+    <h1><%= name %></h1>
+   
+    <!-- Navigation bar -->
+    <nav class="navigation">
+        <ul>
+            <!-- Navigation links -->
+            <li><a href="/">Home</a></li>
+            <li><a href="/myproject">Works</a></li>
+            <li><a href="/contacts">Contacts</a></li>          
+            
+        </ul>
+        <!-- Search form -->
+        <form action="/search" method="POST" class="search-form">
+          <input type="text" name="query" placeholder="Search my works...">
+          <button type="submit">Search</button>
+      </form>
+    </nav>
+    
+    <!-- Project description and details -->
+    <p>
+      <%= project.description %><br><br>
+      Features:<br>
+      <%= project.features %><br><br>
+      Technologies Used:<br>
+      <%= project.technology %>
+    </p>
+    
+    <!-- Link to external portfolio -->
+    <a href="https://doc.gold.ac.uk/~adani001/abel/">
+        abel's portfolio
+    </a>
+    <br>
+      
+    <!-- Image gallery -->
+    <span class="image6">
+      <img src="images/Aboutme.png" alt="Description of image">
+      <img src="images/homepa.png" alt="Description of image">
+      <img src="images/mycontact.png" alt="Description of image">
+      <img src="images/projects.png" alt="Description of image">
+    </span>
+  </body>
+</html>

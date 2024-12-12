@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <!-- Link to the main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+<body>
+    <!-- Header section -->
+    <header class="header">
+        <h1>Register</h1>
+    </header>
+    
+    <!-- Main container -->
+    <div class="container">
+        <!-- Display error messages if any -->
+        <% if (errors && errors.length > 0) { %>
+            <ul class="error-messages">
+                <% errors.forEach(function(error) { %>
+                    <li><%= error.msg %></li>
+                <% }); %>
+            </ul>
+        <% } %>
+
+        <!-- Registration form -->
+        <form action="/users/register" method="POST" class="form">
+            <!-- Username input field -->
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" name="username" required>
+            </div>
+
+            <!-- First name input field -->
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+
+            <!-- Last name input field -->
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+
+            <!-- Email input field -->
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <!-- Password input field -->
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="password" required>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn">Register</button>
+        </form>
+
+        <!-- Link to login page for existing users -->
+        <p>Already have an account? <a href="/users/login">Login here</a>.</p>
+        <!-- Link to home page -->
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

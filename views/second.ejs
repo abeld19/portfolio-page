@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Page title dynamically set from project name -->
+    <title><%= project.name %></title>
+    <!-- Link to main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <!-- Main heading dynamically set from name variable -->
+    <h1><%= name %></h1>
+    
+    <!-- Navigation bar -->
+    <nav class="navigation">
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/myproject">Works</a></li>
+          <li><a href="/contacts">Contacts</a></li>   
+         
+      </ul>
+      <!-- Search form -->
+      <form action="/search" method="POST" class="search-form">
+        <input type="text" name="query" placeholder="Search my works...">
+        <button type="submit">Search</button>
+      </form>
+    </nav>
+    
+    <!-- Project description and details -->
+    <p>
+      <%= project.description %><br><br>
+      Features:<br>
+      <%= project.features %><br><br>
+      Technologies Used:<br>
+      <%= project.technology %>
+    </p>
+    
+    <!-- Image gallery -->
+    <span class="image5">
+      <img src="images/0_cc.jpg" alt="Description of image">
+      <img src="images/1_cc.jpg" alt="Description of image">
+      <img src="images/2_cc.jpg" alt="Description of image">
+      <img src="images/carecompass_articles.jpg" alt="Description of image">
+      <img src="images/carecompass_chat.jpg" alt="Description of image">
+      <img src="images/carecompass_forum.jpg" alt="Description of image">
+      <img src="images/carecompass_notif.jpg" alt="Description of image">
+    </span>
+  </body>
+</html>
