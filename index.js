@@ -39,7 +39,7 @@ app.use(session({
 
 // Define the database connection pool
 const pool = mysql.createPool({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'myportfolio_app',
     password: 'tigray',
     database: 'myportfolio',
